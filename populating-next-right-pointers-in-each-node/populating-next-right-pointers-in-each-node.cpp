@@ -28,22 +28,17 @@ public:
         while(!q.empty()){
             
             int n = q.size();
-            Node* prev = NULL;
                 
             for(int i=0;i<n;i++){
                 Node* curr = q.front(); q.pop();
                 
-                if(i>0)
-                    prev -> next = curr;
+                if(i!=n-1)
+                    curr -> next = q.front();
                 
                 if(curr->left) q.push(curr->left);
                 if(curr->right) q.push(curr->right);
-                
-                prev = curr;
 
             }
-            
-            prev -> next = NULL;
             
         }
         
