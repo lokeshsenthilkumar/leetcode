@@ -1,7 +1,7 @@
 class Solution:
     def minimumTotal(self, triangle: List[List[int]]) -> int:
         
-        r=len(triangle)
+        r = len(triangle)
         
         for i in range(r-2, -1, -1):
             for j in range(len(triangle[i])):
