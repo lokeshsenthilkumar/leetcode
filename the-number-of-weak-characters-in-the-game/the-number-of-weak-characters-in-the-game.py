@@ -1,7 +1,8 @@
 class Solution:
     def numberOfWeakCharacters(self, properties: List[List[int]]) -> int:
         
-        properties.sort(key=lambda x: (x[0], -x[1]))
+        properties.sort(key=lambda x: -x[1])
+        properties.sort(key=lambda x: x[0])
         
         stack = []
         ans = 0
