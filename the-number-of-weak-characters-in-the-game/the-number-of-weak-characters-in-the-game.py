@@ -7,8 +7,8 @@ class Solution:
         ans = 0
         
         for a, d in properties:
-            while stack and stack[-1][1] < d:
+            while stack and stack[-1] < d:
                 stack.pop()
                 ans += 1
-            stack.append((a, d))
+            stack.append(d)
         return ans
