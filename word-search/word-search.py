@@ -2,7 +2,6 @@ class Solution:
     def exist(self, board: List[List[str]], word: str) -> bool:
         
         r = len(board) ; c = len(board[0])
-        path = set()
         
         def dfs(i,j,w):
             
@@ -11,10 +10,13 @@ class Solution:
             if i<0 or j<0 or i>=r or j>=c or board[i][j]!=word[w] or (i,j) in path:
                 return False
             
-            path.add((i,j))
+            t = board[i][j]
+            board[i][j] = '#'
+            
             
             res =  dfs(i-1,j,w+1) or dfs(i+1,j,w+1) or dfs(i,j-1,w+1) or dfs(i,j+1,w+1)
-            path.remove((i,j))
+            
+            board[i][j] = t
             
             return res
         
