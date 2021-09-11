@@ -1,3 +1,7 @@
+// 0 -> unvisited
+// 1 -> processing
+// 2 -> processed
+
 class Solution {
 public:
     
@@ -6,7 +10,7 @@ public:
         vector<int> adj[n];
         
         for(auto edge : pre)
-            adj[edge[0]].push_back(edge[1]);
+            adj[edge[1]].push_back(edge[0]);
         
         vector<int> vis(n,0);
         
@@ -19,8 +23,11 @@ public:
     
     bool iscycle(vector<int> adj[],vector<int> &vis,int id){
         
-        if(vis[id]==1)
+        if(vis[id]==1)  // already visited in current recursion stack
             return true;
+        
+        if(vis[id] == 2)
+            return false;
 
         if(vis[id]==0){
             vis[id]=1;
@@ -30,7 +37,7 @@ public:
             }
         }
 
-        vis[id] = 2;
+        vis[id] = 2;  // processed (popping out of current recursion stack)
         return false;
     }
 };
