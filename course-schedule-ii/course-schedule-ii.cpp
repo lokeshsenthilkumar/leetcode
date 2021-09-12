@@ -23,18 +23,16 @@ public:
         if(vis[id]==1)  // processing (present in current recursion stack)
             return true;
         
-        if(vis[id] == 2) // this check is not mandatory
-            return false;
-
         if(vis[id] == 0){
             vis[id] = 1;
             for(auto edge : adj[id]){
                 if(vis[edge]!=2 && iscycle(adj,vis,edge,output))
                     return true;
             }
+            output.push_back(id);
         }
-
-        output.push_back(id);
+        
+        
         
         vis[id] = 2;  // processed (popping out of current recursion stack)
         return false;
