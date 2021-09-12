@@ -24,10 +24,8 @@ class Solution:
             for j in range(c):
                 if board[i][j] == 'O':
                     board[i][j] = 'X'
-                
-        for i in range(r):
-            for j in range(c):
                 if board[i][j] == 'B':
                     board[i][j] = 'O'
+       
                 
         
