@@ -6,7 +6,7 @@ public:
         vector<int> output;
         
         for(auto edge : pre)
-            adj[edge[1]].push_back(edge[0]);
+            adj[edge[0]].push_back(edge[1]);
         
         vector<int> vis(n,0);
         
@@ -14,8 +14,6 @@ public:
             if(iscycle(adj,vis,i,output))
                 return {};
         }
-        
-        reverse(output.begin(),output.end());
         
         return output;
     }
