@@ -1,3 +1,4 @@
+[Discussion Post (created on 13/8/2021 at 18:14)](https://leetcode.com/problems/maximum-number-of-balloons/discuss/1461224/Simple-Python-Solution)  
 <h2>1189. Maximum Number of Balloons</h2><h3>Easy</h3><hr><div><p>Given a string <code>text</code>, you want to use the characters of <code>text</code> to form as many instances of the word <strong>"balloon"</strong> as possible.</p>
 
 <p>You can use each character in <code>text</code> <strong>at most once</strong>. Return the maximum number of instances that can be formed.</p>
