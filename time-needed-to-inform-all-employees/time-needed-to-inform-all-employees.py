@@ -6,7 +6,8 @@ class Solution:
             
             nonlocal ans
             
-            ans = max(ans, time)
+            if node not in graph:
+                ans = max(ans, time)
             
             for child in graph[node]:
                 dfs(child,time + informTime[node])
@@ -16,7 +17,8 @@ class Solution:
         graph = defaultdict(list)
         
         for e,m in enumerate(manager):
-            graph[m].append(e)
+            if m != -1:
+                graph[m].append(e)
         
         ans = 0
             
