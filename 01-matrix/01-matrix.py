@@ -1,3 +1,4 @@
+#BFS
 # class Solution:
 #     def updateMatrix(self, mat: List[List[int]]) -> List[List[int]]:
         
@@ -32,7 +33,9 @@
 #                     q.append((x,y))
             
 #         return mat
-    
+
+#DP
+
 class Solution:
     def updateMatrix(self, mat: List[List[int]]) -> List[List[int]]:
         
@@ -49,8 +52,8 @@ class Solution:
                     if j-1 >= 0:
                         left = mat[i][j-1]
                     
-                    mat[i][j] = min(top,left)+1
-        
+                    mat[i][j] = min(top+1,left+1)
+                    
         for i in range(r-1,-1,-1):
             for j in range(c-1,-1,-1):
                 if mat[i][j] != 0:
@@ -61,6 +64,8 @@ class Solution:
                     if j+1 <= c-1:
                         right = mat[i][j+1]
                     
-                    mat[i][j] = min(mat[i][j], min(bottom,right)+1)
                     
+                    mat[i][j] = min({mat[i][j],bottom+1,right+1})
+        
+        
         return mat
